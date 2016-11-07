@@ -1,5 +1,5 @@
 <?php
-if ( post_password_required() )
+if ( TRUE || post_password_required() )
 	return;
 ?>
 
