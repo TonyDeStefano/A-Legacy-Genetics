@@ -135,6 +135,44 @@ a.btn.btn-alg-buy {
     background-color: #EBDA2A;
 }
 
+#cow-slider {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.cow-slide {
+    width: 100%;
+    height: 400px;
+    display: none;
+    position: relative;
+}
+
+.cow-slide img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.cow-slider-arrow {
+    position: absolute;
+    top: 180px;
+    cursor: pointer;
+    color: #CCC;
+    font-size: 40px;
+}
+
+.cow-slider-arrow-right {
+    right: 20px;
+}
+
+.cow-slider-arrow-left {
+    left: 20px;
+}
+
 .page h1 {
     text-align: center;
     font-size: 30px;

@@ -11,6 +11,7 @@ class Cow {
 	private $cow_type;
 	private $title;
 	private $content;
+	private $thumbnail;
 	private $image;
 	private $url;
 
@@ -90,6 +91,26 @@ class Cow {
 	public function setContent( $content )
 	{
 		$this->content = $content;
+
+		return $this;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getThumbnail()
+	{
+		return ( $this->thumbnail === NULL ) ? '' : $this->thumbnail;
+	}
+
+	/**
+	 * @param mixed $thumbnail
+	 *
+	 * @return Cow
+	 */
+	public function setThumbnail( $thumbnail )
+	{
+		$this->thumbnail = $thumbnail;
 
 		return $this;
 	}

@@ -5,8 +5,8 @@ namespace ALegacyGenetics;
 class Controller {
 
 	const VERSION = '1.0.0';
-	const VERSION_CSS = '1.0.1';
-	const VERSION_JS = '1.0.0';
+	const VERSION_CSS = '1.0.2';
+	const VERSION_JS = '1.0.1';
 
 	const APP_NAME = 'a_legacy_genetics';
 	const THEME_URI = 'http://www.alegacygenetics.com';
@@ -344,7 +344,9 @@ class Controller {
 
 		$args = array(
 			'post_type' => $cow_type,
-			'post_status' => 'publish'
+			'post_status' => 'publish',
+			'orderby' => 'ID',
+			'order' => 'ASC'
 		);
 		$query = new \WP_Query( $args );
 
@@ -357,12 +359,14 @@ class Controller {
 				->setCowType( $cow_type )
 				->setTitle( get_the_title() )
 				->setContent( get_the_content() )
-				->setImage( get_the_post_thumbnail_url() )
+				->setThumbnail( get_the_post_thumbnail_url( NULL, 'thumbnail' ) )
+				->setImage( get_the_post_thumbnail_url( NULL, 'full' ) )
 				->setUrl( get_the_permalink() );
 
 			$cows[ $cow->getId() ] = $cow;
 		}
 
+		ksort( $cows );
 		return $cows;
 	}
 

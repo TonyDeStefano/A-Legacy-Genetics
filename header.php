@@ -148,9 +148,49 @@ global $alg_controller;
 </nav>
 
 <?php if ( is_front_page() ) { ?>
-	<div id="cow-slider">
 
-	</div>
+	<?php
+
+	$white_angus = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::COW_TYPE_WHITE_ANGUS );
+	$gyrolondo =  \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::COW_TYPE_GYRLONDO );
+	$cows = [];
+	foreach ( $white_angus as $cow )
+	{
+		$cows[] = $cow;
+	}
+	foreach ( $gyrolondo as $cow )
+	{
+		$cows[] = $cow;
+	}
+
+	foreach ( $cows as $index => $cow )
+	{
+		if ( strlen( $cow->getImage() ) == 0 )
+		{
+			unset( $cows[ $index ] );
+		}
+	}
+
+	?>
+
+	<?php if ( count( $cows ) > 0 ) { ?>
+		<div id="cow-slider" class="hidden-xs">
+			<?php $count = 0; ?>
+			<?php foreach ( $cows as $cow ) { ?>
+				<div data-index="<?php echo $count; ?>" class="cow-slide cow-slide-<?php echo $count; ?>">
+					<img src="<?php echo $cow->getImage(); ?>">
+				</div>
+				<?php $count++; ?>
+			<?php } ?>
+			<div class="cow-slider-arrow cow-slider-arrow-left">
+				<i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+			</div>
+			<div class="cow-slider-arrow cow-slider-arrow-right">
+				<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+			</div>
+		</div>
+	<?php } ?>
+
 <?php } ?>
 
 <div class="alg-content">

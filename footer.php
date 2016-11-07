@@ -35,8 +35,8 @@ $gyrlondo_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::CO
 		<?php } ?>
 		<?php foreach ( $white_angus_bulls as $cow ) { ?>
 			<div class="col-md-3 white-angus-bulls-cow">
-				<?php if ( strlen( $cow->getImage() ) ) { ?>
-					<img class="img-thumbnail" src="<?php echo $cow->getImage(); ?>">
+				<?php if ( strlen( $cow->getThumbnail() ) ) { ?>
+					<img class="img-thumbnail" src="<?php echo $cow->getThumbnail(); ?>">
 				<?php } ?>
 				<h4><?php echo $cow->getTitle(); ?></h4>
 				<a href="<?php echo $cow->getUrl(); ?>" class="btn btn-yellow">Learn More</a>
@@ -53,8 +53,8 @@ $gyrlondo_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::CO
 		<div class="col-md-3"></div>
 		<?php foreach ( $gyrlondo_bulls as $cow ) { ?>
 			<div class="col-md-3 white-angus-bulls-cow">
-				<?php if ( strlen( $cow->getImage() ) ) { ?>
-					<img class="img-thumbnail" src="<?php echo $cow->getImage(); ?>">
+				<?php if ( strlen( $cow->getThumbnail() ) ) { ?>
+					<img class="img-thumbnail" src="<?php echo $cow->getThumbnail(); ?>">
 				<?php } ?>
 				<h4><?php echo $cow->getTitle(); ?></h4>
 				<a href="<?php echo $cow->getUrl(); ?>" class="btn btn-yellow">Learn More</a>
@@ -81,7 +81,7 @@ $gyrlondo_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::CO
 				<br>
 				<?php if ( strlen( $alg_controller->getFacebookLink() ) > 0 ) { ?>
 					<a href="<?php echo $alg_controller->getFacebookLink(); ?>" target="_blank">
-						<i class="fa fa-facebook fa-fw" aria-hidden="true"></i>
+						<i class="fa fa-facebook-official fa-fw" aria-hidden="true"></i>
 					</a>
 				<?php } ?>
 				<?php if ( strlen( $alg_controller->getTwitterLink() ) > 0 ) { ?>
