@@ -299,6 +299,63 @@ class Controller {
 		);
 	}
 
+	public function create_post_types()
+	{
+		$labels = array (
+			'name' => __( 'White Angus Bulls' ),
+			'singular_name' => __( 'White Angus Bull' ),
+			'add_new_item' => __( 'Add New White Angus Bull' ),
+			'edit_item' => __( 'Edit White Angus Bull' ),
+			'new_item' => __( 'New White Angus Bull' ),
+			'view_item' => __( 'View White Angus Bull' ),
+			'search_items' => __( 'Search White Angus Bulls' ),
+			'not_found' => __( 'No White Angus Bulls Found.' )
+		);
+
+		$args = array (
+			'labels' => $labels,
+			'hierarchical' => FALSE,
+			'description' => 'White Angus Bulls',
+			'supports' => array('title', 'editor', 'thumbnail'),
+			'public' => FALSE,
+			'show_ui' => TRUE,
+			'show_in_menu' => FALSE,
+			'show_in_nav_menus' => FALSE,
+			'publicly_queryable' => FALSE,
+			'exclude_from_search' => FALSE,
+			'has_archive' => TRUE
+		);
+
+		register_post_type('alg_white_angus_bull', $args);
+
+		$labels = array (
+			'name' => __( 'Gyrolondo Bulls' ),
+			'singular_name' => __( 'Gyrolondo Bull' ),
+			'add_new_item' => __( 'Add New Gyrolondo Bull' ),
+			'edit_item' => __( 'Edit Gyrolondo Bull' ),
+			'new_item' => __( 'New Gyrolondo Bull' ),
+			'view_item' => __( 'View Gyrolondo Bull' ),
+			'search_items' => __( 'Search Gyrolondo Bulls' ),
+			'not_found' => __( 'No Gyrolondo Bulls Found.' )
+		);
+
+		$args = array (
+			'labels' => $labels,
+			'hierarchical' => FALSE,
+			'description' => 'Gyrolondo Bulls',
+			'supports' => array('title', 'editor', 'thumbnail'),
+			'public' => FALSE,
+			'show_ui' => TRUE,
+			'show_in_menu' => FALSE,
+			'show_in_nav_menus' => FALSE,
+			'publicly_queryable' => FALSE,
+			'exclude_from_search' => FALSE,
+			'has_archive' => TRUE
+		);
+
+		register_post_type('alg_gyrolondo_bull', $args);
+	}
+
 	public function save_custom_page_meta( $post_id )
 	{
 		$page_layout = $this->get_default_page_layouts();
@@ -431,6 +488,8 @@ class Controller {
 	{
 		add_menu_page( 'A Legeacy Genetics', 'A Legacy Genetics', 'manage_options', 'a_legacy_genetics', array( $this, 'print_settings_page' ), 'dashicons-awards' );
 		add_submenu_page( 'a_legacy_genetics', 'General Settings', 'General Settings', 'manage_options', 'a_legacy_genetics' );
+		add_submenu_page('a_legacy_genetics', 'ONA White Angus Bulls', 'ONA White Angus Bulls', 'manage_options', 'edit.php?post_type=alg_white_angus_bull');
+		add_submenu_page('a_legacy_genetics', 'Gyrolondo Bulls', 'Gyrolondo Bulls', 'manage_options', 'edit.php?post_type=alg_gyrolondo_bull');
 		//add_submenu_page( 'a_legacy_genetics', 'Homepage Boxes', 'Homepage Boxes', 'manage_options', 'a_legacy_genetics_homepage_boxes', array( $this, 'print_homepage_boxes_page' ) );
 		//add_submenu_page( 'a_legacy_genetics', 'Hover Cow', 'Hover Cow', 'manage_options', 'a_legacy_genetics_hover_cow', array( $this, 'print_hover_cow_page' ) );
 		//add_submenu_page( 'a_legacy_genetics', 'Members', 'Members', 'manage_options', 'a_legacy_genetics_members', array( $this, 'print_members_page' ) );
