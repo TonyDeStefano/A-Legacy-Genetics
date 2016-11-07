@@ -26,8 +26,6 @@ class Controller {
 	const OPTION_CALL_TO_ACTION = 'alg_call_to_action';
 	const OPTION_CALL_TO_ACTION_SUB = 'alg_call_to_action_sub';
 	const OPTION_PURCHASE_LINK = 'alg_purchase_link';
-	const OPTION_LIFETIME_FEE = 'alg_lifetime_fee';
-	const OPTION_ANNUAL_FEE = 'alg_annual_fee';
 
 	private $attributes;
 	private $errors;
@@ -559,8 +557,6 @@ class Controller {
 		register_setting( 'a_legacy_genetics_settings', self::OPTION_CALL_TO_ACTION );
 		register_setting( 'a_legacy_genetics_settings', self::OPTION_CALL_TO_ACTION_SUB );
 		register_setting( 'a_legacy_genetics_settings', self::OPTION_PURCHASE_LINK );
-		register_setting( 'a_legacy_genetics_settings', self::OPTION_LIFETIME_FEE );
-		register_setting( 'a_legacy_genetics_settings', self::OPTION_ANNUAL_FEE );
 	}
 
 	public function getAddress( $nl2br = TRUE )
@@ -636,28 +632,6 @@ class Controller {
 	public function getPurchaseLink()
 	{
 		return get_option( self::OPTION_PURCHASE_LINK, '' );
-	}
-
-	public function getLifetimeFee()
-	{
-		$fee = get_option( self::OPTION_LIFETIME_FEE, '' );
-		if ( strlen( $fee ) > 0 )
-		{
-			$fee = preg_replace( '/[^0-9.]*/', '', $fee );
-		}
-
-		return $fee;
-	}
-
-	public function getAnnualFee()
-	{
-		$fee =  get_option( self::OPTION_ANNUAL_FEE, '' );
-		if ( strlen( $fee ) > 0 )
-		{
-			$fee = preg_replace( '/[^0-9.]*/', '', $fee );
-		}
-
-		return $fee;
 	}
 
 	public function short_code( $attributes )

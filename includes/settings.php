@@ -209,50 +209,6 @@ global $alg_controller;
 						value="<?php echo esc_html( $alg_controller->getPurchaseLink() ); ?>">
 				</td>
 			</tr>
-			<tr valign="top">
-				<th scope="row">
-					<label for="<?php echo \ALegacyGenetics\Controller::OPTION_ANNUAL_FEE; ?>">
-						Annual Membership Fee
-					</label>
-				</th>
-				<td>
-					<?php if ( strlen( $alg_controller->getAnnualFee() ) > 0 ) { ?>
-						$<?php echo number_format( $alg_controller->getAnnualFee(), 2 ); ?>
-					<?php } else { ?>
-						N/A
-					<?php } ?>
-				</td>
-				<td>
-					<input
-						type="text"
-						class="form-control"
-						id="<?php echo \ALegacyGenetics\Controller::OPTION_ANNUAL_FEE; ?>"
-						name="<?php echo \ALegacyGenetics\Controller::OPTION_ANNUAL_FEE; ?>"
-						value="<?php echo esc_html( $alg_controller->getAnnualFee() ); ?>">
-				</td>
-			</tr>
-			<tr valign="top">
-				<th scope="row">
-					<label for="<?php echo \ALegacyGenetics\Controller::OPTION_LIFETIME_FEE; ?>">
-						Lifetime Membership Fee
-					</label>
-				</th>
-				<td>
-					<?php if ( strlen( $alg_controller->getLifetimeFee() ) > 0 ) { ?>
-						$<?php echo number_format( $alg_controller->getLifetimeFee(), 2 ); ?>
-					<?php } else { ?>
-						N/A
-					<?php } ?>
-				</td>
-				<td>
-					<input
-						type="text"
-						class="form-control"
-						id="<?php echo \ALegacyGenetics\Controller::OPTION_LIFETIME_FEE; ?>"
-						name="<?php echo \ALegacyGenetics\Controller::OPTION_LIFETIME_FEE; ?>"
-						value="<?php echo esc_html( $alg_controller->getLifetimeFee() ); ?>">
-				</td>
-			</tr>
 		</table>
 
 		<?php submit_button(); ?>
