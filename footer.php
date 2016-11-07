@@ -50,7 +50,10 @@ $gyrlondo_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::CO
 				<div id="alg-under-title"></div>
 			</div>
 		<?php } ?>
-		<div class="col-md-3"></div>
+
+		<?php if ( count( $gyrlondo_bulls ) <= 2 ) { ?>
+			<div class="col-md-3"></div>
+		<?php } ?>
 		<?php foreach ( $gyrlondo_bulls as $cow ) { ?>
 			<div class="col-md-3 white-angus-bulls-cow">
 				<?php if ( strlen( $cow->getThumbnail() ) ) { ?>
@@ -60,7 +63,6 @@ $gyrlondo_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::CO
 				<a href="<?php echo $cow->getUrl(); ?>" class="btn btn-yellow">Learn More</a>
 			</div>
 		<?php } ?>
-		<div class="col-md-3"></div>
 	</div>
 
 <?php } ?>
