@@ -5,7 +5,7 @@ namespace ALegacyGenetics;
 class Controller {
 
 	const VERSION = '1.0.0';
-	const VERSION_CSS = '1.0.0';
+	const VERSION_CSS = '1.0.1';
 	const VERSION_JS = '1.0.0';
 
 	const APP_NAME = 'a_legacy_genetics';
@@ -31,29 +31,6 @@ class Controller {
 
 	private $attributes;
 	private $errors;
-
-	/** @var Member $member */
-	private $member;
-
-	/**
-	 * @return Member
-	 */
-	public function getMember()
-	{
-		return ( $this->member === NULL ) ? new Member : $this->member;
-	}
-
-	/**
-	 * @param Member $member
-	 *
-	 * @return Controller
-	 */
-	public function setMember( $member )
-	{
-		$this->member = $member;
-
-		return $this;
-	}
 
 	/**
 	 * @return mixed
@@ -317,11 +294,11 @@ class Controller {
 			'hierarchical' => FALSE,
 			'description' => 'White Angus Bulls',
 			'supports' => array('title', 'editor', 'thumbnail'),
-			'public' => FALSE,
+			'public' => TRUE,
 			'show_ui' => TRUE,
 			'show_in_menu' => FALSE,
 			'show_in_nav_menus' => FALSE,
-			'publicly_queryable' => FALSE,
+			'publicly_queryable' => TRUE,
 			'exclude_from_search' => FALSE,
 			'has_archive' => TRUE
 		);
@@ -344,16 +321,65 @@ class Controller {
 			'hierarchical' => FALSE,
 			'description' => 'Gyrolondo Bulls',
 			'supports' => array('title', 'editor', 'thumbnail'),
-			'public' => FALSE,
+			'public' => TRUE,
 			'show_ui' => TRUE,
 			'show_in_menu' => FALSE,
 			'show_in_nav_menus' => FALSE,
-			'publicly_queryable' => FALSE,
+			'publicly_queryable' => TRUE,
 			'exclude_from_search' => FALSE,
 			'has_archive' => TRUE
 		);
 
 		register_post_type('alg_gyrolondo_bull', $args);
+	}
+
+	/**
+	 * @param $cow_type
+	 *
+	 * @return Cow[]
+	 */
+	public static function getCows( $cow_type )
+	{
+		$cows = [];
+
+		$args = array(
+			'post_type' => $cow_type,
+			'post_status' => 'publish'
+		);
+		$query = new \WP_Query( $args );
+
+		while ( $query->have_posts() )
+		{
+			$query->the_post();
+			$cow = new Cow;
+			$cow
+				->setId( get_the_ID() )
+				->setCowType( $cow_type )
+				->setTitle( get_the_title() )
+				->setContent( get_the_content() )
+				->setImage( get_the_post_thumbnail_url() )
+				->setUrl( get_the_permalink() );
+
+			$cows[ $cow->getId() ] = $cow;
+		}
+
+		return $cows;
+	}
+
+	/**
+	 * @return Cow[]
+	 */
+	public static function getWhiteAngusBulls()
+	{
+		return self::getCows( 'alg_white_angus_bull' );
+	}
+
+	/**
+	 * @return Cow[]
+	 */
+	public static function getGyrlondoBulls()
+	{
+		return self::getCows( 'alg_gyrolondo_bull' );
 	}
 
 	public function save_custom_page_meta( $post_id )
@@ -488,7 +514,7 @@ class Controller {
 	{
 		add_menu_page( 'A Legeacy Genetics', 'A Legacy Genetics', 'manage_options', 'a_legacy_genetics', array( $this, 'print_settings_page' ), 'dashicons-awards' );
 		add_submenu_page( 'a_legacy_genetics', 'General Settings', 'General Settings', 'manage_options', 'a_legacy_genetics' );
-		add_submenu_page('a_legacy_genetics', 'ONA White Angus Bulls', 'ONA White Angus Bulls', 'manage_options', 'edit.php?post_type=alg_white_angus_bull');
+		add_submenu_page('a_legacy_genetics', 'White Angus Bulls', 'White Angus Bulls', 'manage_options', 'edit.php?post_type=alg_white_angus_bull');
 		add_submenu_page('a_legacy_genetics', 'Gyrolondo Bulls', 'Gyrolondo Bulls', 'manage_options', 'edit.php?post_type=alg_gyrolondo_bull');
 		//add_submenu_page( 'a_legacy_genetics', 'Homepage Boxes', 'Homepage Boxes', 'manage_options', 'a_legacy_genetics_homepage_boxes', array( $this, 'print_homepage_boxes_page' ) );
 		//add_submenu_page( 'a_legacy_genetics', 'Hover Cow', 'Hover Cow', 'manage_options', 'a_legacy_genetics_hover_cow', array( $this, 'print_hover_cow_page' ) );

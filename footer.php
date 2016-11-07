@@ -16,6 +16,54 @@ global $alg_controller;
 	</h3>
 </div>
 
+<?php
+
+$white_angus_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::COW_TYPE_WHITE_ANGUS );
+$gyrlondo_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::COW_TYPE_GYRLONDO );
+
+?>
+
+<?php if ( count( $white_angus_bulls ) > 0 && count ( $gyrlondo_bulls ) > 0 ) { ?>
+
+	<div class="row" id="white-angus-bulls">
+
+		<?php if ( count( $white_angus_bulls ) > 0 ) { ?>
+			<div class="col-md-12">
+				<h3>White Angus Bulls</h3>
+				<div id="alg-under-title"></div>
+			</div>
+		<?php } ?>
+		<?php foreach ( $white_angus_bulls as $cow ) { ?>
+			<div class="col-md-3 white-angus-bulls-cow">
+				<?php if ( strlen( $cow->getImage() ) ) { ?>
+					<img class="img-thumbnail" src="<?php echo $cow->getImage(); ?>">
+				<?php } ?>
+				<h4><?php echo $cow->getTitle(); ?></h4>
+				<a href="<?php echo $cow->getUrl(); ?>" class="btn btn-yellow">Learn More</a>
+			</div>
+		<?php } ?>
+
+		<?php if ( count( $gyrlondo_bulls ) > 0 ) { ?>
+			<div class="col-md-12">
+				<h3>Gyrolondo Bulls</h3>
+				<div id="alg-under-title"></div>
+			</div>
+		<?php } ?>
+		<div class="col-md-3"></div>
+		<?php foreach ( $gyrlondo_bulls as $cow ) { ?>
+			<div class="col-md-3 white-angus-bulls-cow">
+				<?php if ( strlen( $cow->getImage() ) ) { ?>
+					<img class="img-thumbnail" src="<?php echo $cow->getImage(); ?>">
+				<?php } ?>
+				<h4><?php echo $cow->getTitle(); ?></h4>
+				<a href="<?php echo $cow->getUrl(); ?>" class="btn btn-yellow">Learn More</a>
+			</div>
+		<?php } ?>
+		<div class="col-md-3"></div>
+	</div>
+
+<?php } ?>
+
 <div id="alg-footer" class="row">
 	<div class="col-sm-1"></div>
 	<div class="col-sm-3 hidden-xs">

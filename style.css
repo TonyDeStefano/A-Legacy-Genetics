@@ -117,6 +117,24 @@ a.btn.btn-alg-buy {
     margin-right: 0 !important;
 }
 
+#white-angus-bulls.row {
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+    padding-bottom: 25px;
+}
+
+#white-angus-bulls.row .white-angus-bulls-cow {
+    text-align: center;
+}
+
+#white-angus-bulls h3 {
+    text-align: center;
+}
+
+.btn-yellow {
+    background-color: #EBDA2A;
+}
+
 .page h1 {
     text-align: center;
     font-size: 30px;

@@ -2,6 +2,7 @@
 
 require_once ( 'classes/ALegacyGenetics/Controller.php' );
 require_once ( 'classes/ALegacyGenetics/MenuItem.php' );
+require_once ( 'classes/ALegacyGenetics/Cow.php' );
 require_once ( 'classes/ALegacyGenetics/HoverCow.php' );
 require_once ( 'classes/ALegacyGenetics/HomepageBox.php' );
 
