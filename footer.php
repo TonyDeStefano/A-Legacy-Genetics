@@ -40,6 +40,7 @@ $gyrlondo_bulls = \ALegacyGenetics\Controller::getCows( \ALegacyGenetics\Cow::CO
 				<?php } ?>
 				<h4><?php echo $cow->getTitle(); ?></h4>
 				<a href="<?php echo $cow->getUrl(); ?>" class="btn btn-yellow">Learn More</a>
+				<hr class="visible-xs visible-sm">
 			</div>
 		<?php } ?>
 
