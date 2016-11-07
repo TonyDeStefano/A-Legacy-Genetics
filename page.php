@@ -24,22 +24,14 @@ global $alg_controller;
 
 				<article class="page" id="pageid-<?php the_ID(); ?>">
 
-					<?php do_action( 'basic_before_page_title' );  ?>
-
 					<?php if ( ! has_shortcode( get_the_content(), 'a_legacy_genetics' ) ) { ?>
 						<h1><?php the_title(); ?></h1>
 						<div id="alg-under-title"></div>
 					<?php } ?>
 
-					<?php do_action( 'basic_after_page_title' );  ?>
-
-					<?php do_action( 'basic_before_page_content_box' );  ?>
 					<div class="entry-box clearfix">
-						<?php do_action( 'basic_before_page_content' );  ?>
 						<?php the_content(); ?>
-						<?php do_action( 'basic_after_page_content' );  ?>
 					</div>
-					<?php do_action( 'basic_after_page_content_box' );  ?>
 
 				</article>
 
