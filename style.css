@@ -1,0 +1,230 @@
+/*
+ * Theme Name: A Legacy Genetics
+ * Description: Custom theme for the A Legacy Genetics website
+ * Theme URI: http://www.alegacygenetics.com
+ * Author: Scott Williams & Tony DeStefano
+ * Author URI: http://www.alegacygenetics.com
+ * Version: 1.0.0
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: a-legacy-genetics
+ */
+
+
+body {
+    font: 14px/140% 'Open Sans', Tahoma, Verdana, Segoe, sans-serif;
+    color: #3a3a3a;
+    word-wrap: break-word;
+}
+
+a {
+    color: #3a3a3a;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #477E3A;
+}
+
+#alg-logo {
+    height: 224px;
+    width: 100%;
+    background: url('img/world-stripe.png') center;
+    text-align: center;
+}
+
+#alg-logo img {
+    margin-top: 30px;
+}
+
+.navbar-alg {
+    background-image: none;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar-alg a {
+    text-decoration: none;
+}
+
+.navbar-green {
+    background-color: #477E3A;
+}
+
+.navbar-yellow {
+    background-color: #EBDA2A;
+}
+
+.navbar-inverse.navbar-green.navbar-alg .navbar-nav > li > a {
+    color: #EBDA2A !important;
+}
+
+.navbar-inverse.navbar-yellow.navbar-alg .navbar-nav > li > a {
+    color: #4E4F51 !important;
+}
+
+#alg-call-to-action {
+    background: #4875AA;
+    padding: 20px 100px;
+}
+
+#alg-call-to-action h3,
+#alg-call-to-action h3 small {
+    font-weight: normal;
+    text-align: center;
+    color: #EBDA2A;
+}
+
+.alg-content {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+#alg-footer {
+    background-color: #CCC;
+    color: #4E4F51;
+}
+
+#alg-footer div {
+    padding: 20px;
+}
+
+a.btn.btn-alg-buy {
+    background: #4875AA;
+    color: #EBDA2A !important;
+    font-size: 36px;
+    border-radius: 25px;
+    padding: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top: 25px;
+}
+
+#alg-copyright {
+    background: #477E3A;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.page h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+img.alignright {
+    float: right;
+    margin: 0 10px;
+}
+
+#alg-under-title {
+    margin: 10px auto 20px;
+    border: 1px solid #477E3A;
+    width: 100px;
+}
+
+.ona-home-columns {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.ona-home-columns h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.ona-home-columns i {
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 20px;
+    line-height: 40px;
+    border-radius: 20px;
+    width: 40px;
+}
+
+.ona-home-cow h2 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.ona-home-cow h2 small {
+    text-transform: uppercase;
+}
+
+ul#widgetlist {
+    list-style: none;
+}
+
+ul#widgetlist ul {
+    margin-bottom: 15px;
+}
+
+#ona_login_form label {
+    display: block;
+}
+
+#ona_login_form input[type="text"],
+#ona_login_form input[type="password"] {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #3a3a3a;
+    padding: 4px;
+}
+
+a.btn {
+    text-decoration: none !important;
+}
+
+@media only screen and (max-width : 1200px) {
+
+    #ona-logo {
+        top: 0;
+    }
+}
+
+@media only screen and (max-width : 990px) {
+
+    #ona-footer div {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+
+    #ona-logo {
+        top: 0;
+        left: 0;
+        text-align: center;
+    }
+
+    #ona-logo img {
+        width: 50%;
+    }
+
+    #ona-footer div {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width : 480px) {
+
+    #cow-banner {
+        display: none;
+    }
+
+    #ona-logo-mobile {
+        display: block;
+    }
+}
